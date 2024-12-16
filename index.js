@@ -2,7 +2,8 @@ import express from "express";
 const app = express();
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import { errorHandler, notFound } from "./middlewares/errorMiddleware";
+import { errorHandler, notFound } from "./middlewares/errorMiddleware.js";
+import productsRoutes from "./routes/productsRoutes.js";
 
 dotenv.config();
 
@@ -21,6 +22,9 @@ async function main() {
 
 // Middleware for parsing JSON
 app.use(express.json());
+
+// Routes
+app.use("/products", productsRoutes);
 
 // Middleware for handling errors
 app.use(notFound);
