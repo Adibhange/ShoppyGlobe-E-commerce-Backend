@@ -5,6 +5,8 @@ import dotenv from "dotenv";
 import { errorHandler, notFound } from "./middlewares/errorMiddleware.js";
 import productsRoutes from "./routes/productsRoutes.js";
 import cartRoutes from "./routes/cartRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
+import authMiddleware from "./middlewares/authMiddleware.js";
 
 dotenv.config();
 
@@ -26,7 +28,8 @@ app.use(express.json());
 
 // Routes
 app.use("/products", productsRoutes);
-app.use("/cart", cartRoutes);
+app.use("/cart", authMiddleware, cartRoutes);
+app.use("/user", userRoutes);
 
 // Middleware for handling errors
 app.use(notFound);
