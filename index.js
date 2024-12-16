@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import { errorHandler, notFound } from "./middlewares/errorMiddleware.js";
 import productsRoutes from "./routes/productsRoutes.js";
+import cartRoutes from "./routes/cartRoutes.js";
 
 dotenv.config();
 
@@ -25,6 +26,7 @@ app.use(express.json());
 
 // Routes
 app.use("/products", productsRoutes);
+app.use("/cart", cartRoutes);
 
 // Middleware for handling errors
 app.use(notFound);
