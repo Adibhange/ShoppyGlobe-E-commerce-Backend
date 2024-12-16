@@ -58,12 +58,14 @@ npm install
 
 Create a .env file in the root directory and add the following variables:
 
-````bash
+```bash
 PORT = your-port
 MONGO_URL = your-mongodb-url
 JWT_SECRET = your-secret-key
+```
 
 ### 4. Start the Server
+
 ```bash
 npm run dev
-````
+```
